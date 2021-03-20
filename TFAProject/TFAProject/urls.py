@@ -17,11 +17,12 @@ from django.contrib import admin
 from django.urls import path
 
 #my imports
-from hello.views import index, map_
+from hello.views import index, map_, sightings
 #
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('hello/',index),
-    path('map/', map_)
+    path('map/', map_),
+    path ('sightings/', sightings)
 ]
