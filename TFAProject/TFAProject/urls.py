@@ -17,12 +17,13 @@ from django.contrib import admin
 from django.urls import path
 
 #my imports
-from hello.views import index, map_, sightings
+from hello.views import index, map_, sightings, update_sighting
 #
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('hello/',index),
     path('map/', map_),
-    path ('sightings/', sightings)
+    path ('sightings/', sightings),
+    path ('sightings/<str:unique_squirrel_id>', update_sighting)
 ]
