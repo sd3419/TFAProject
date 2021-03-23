@@ -1,6 +1,46 @@
 <!DOCTYPE html>
 <html>
     <h1> Hello </h1>
-{{unique_squirrel_id}}
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+input[type=text] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+input[type=text]:focus {
+  background-color: lightblue;
+}
+input[type=number] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+input[type=date] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+
+    </style>
+
+</head>
+<body>
+<div class="container">
+    <div class="col-md-6">
+    <form method="POST"> {% csrf_token %}
+    {{form.as_p}}
+    <input type = "submit" value="Save" />
+    </form>
+    </div>
+    <div class="col=md-6"> </div>
+</div>
+</body>
+
 </html>
 
