@@ -6,4 +6,4 @@ class Command(BaseCommand):
     
     
     def handle(self, *args, **options):
-        print("mycommand : is running", options["first"])
+        print("mycommand : isss running", options["first"])
