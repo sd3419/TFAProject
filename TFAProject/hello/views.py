@@ -2,6 +2,7 @@ from django.shortcuts import render
 from hello.models import squirrel_data
 from .forms import SquirreldataForm
 import pandas as pd
+from django.views.decorators.csrf import ensure_csrf_cookie
 
 # Create your views here.
 def index(request):
@@ -18,7 +19,9 @@ def sightings(request):
 def update_sighting(request, unique_squirrel_id):
     sightings = list(squirrel_data.objects.filter(Unique_Squirrel_ID = unique_squirrel_id).values('X', 'Y','Unique_Squirrel_ID', 'Shift', 'Date', 'Age'))
     return render(request, 'hello/update_sighting.html', {'sightings': sightings})
+   
 
+@ensure_csrf_cookie
 def squirrel_data_create(request):
     form = SquirreldataForm(request.POST or None)
     if form.is_valid():
