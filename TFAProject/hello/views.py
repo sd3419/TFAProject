@@ -25,4 +25,5 @@ def squirrel_data_create(request):
 
 def display_r(request):
     st = squirrel_data.objects.all()  # Collect all records from table
-    return render(request, "hello/display.html", {'st': st})
+    fur_count = squirrel_data.objects.filter(Primary_Fur_Color='Gray').count()
+    return render(request, "hello/display.html", {'st': st,'fur_count': fur_count})

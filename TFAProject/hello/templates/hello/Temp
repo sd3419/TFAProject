@@ -1,0 +1,26 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Videos</title>
+</head>
+<body>
+
+
+
+<h1>Statistics based on Squirrel Data</h1>
+<table border="1" width="600">
+<tr>
+<td>Statistic</td>
+<td>Value</td>
+</tr>
+
+{% for squirrel_data in st %}
+<tr>
+<td>{{ squirrel_data.X }}</td>
+<td>{{ squirrel_data.Y }}</td>
+</tr>
+{% endfor %}
+</table>
+
+
+</body>

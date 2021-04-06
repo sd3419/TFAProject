@@ -7,20 +7,20 @@
 
 
 
-<h1>List of Videos</h1>
+<h1>Statistics based on Squirrel Data</h1>
 <table border="1" width="600">
-<tr>
-<td>Name</td>
-<td>Description</td>
-<td>Video File</td>
-</tr>
-
-{% for squirrel_data in st %}
-<tr>
-<td>{{ squirrel_data.X }}</td>
-<td>{{ squirrel_data.Y }}</td>
-</tr>
-{% endfor %}
+ <tr>
+  <th>Statistic</th>
+  <th>Value</th>
+ </tr>
+ <tr>
+   <td>Most common primary fur color</td>
+   <td>squirrel_data.fur_count</td>
+ </tr>
+ <tr>
+   <td>Eve</td>
+   <td>Jackson</td>
+ </tr>
 </table>
 
 
