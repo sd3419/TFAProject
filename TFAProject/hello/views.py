@@ -22,3 +22,7 @@ def squirrel_data_create(request):
     if form.is_valid():
         form.save()
     return render(request,"hello/index.html", {'form': form})
+
+def display_r(request):
+    st = squirrel_data.objects.all()  # Collect all records from table
+    return render(request, "hello/display.html", {'st': st})
