@@ -24,3 +24,11 @@
 
 
 </body>
+
+    fur_count = squirrel_data.objects.filter(Primary_Fur_Color='Gray').count()
+    percent_running = squirrel_data.objects.filter(Highlight_Fur_Color='White').count()
+
+    fur_color_data = squirrel_data.objects.all().values('Primary_Fur_Color')
+    len_fur_color = len(fur_color_data)
+    percentage_fur = Primary_Fur_Color['Gray']
+    animal_type['animal_type']: animal_type['animal_type__count'] * 100 / num_animal_types
