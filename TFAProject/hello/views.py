@@ -30,10 +30,12 @@ def display_r(request):
 
     df = pd.DataFrame(list(squirrel_data.objects.all().values()))
     percentage_running = df['Running'].value_counts(normalize=True) * 100
-    var1 = percentage_running[0].round()
-
+    percentage_chasing = df['Chasing'].value_counts(normalize=True) * 100
+    percentage_climbing = df['Climbing'].value_counts(normalize=True) * 100
+    var1 = percentage_running[1].round()
     var2 = df.Primary_Fur_Color.mode()[0]
-
     var3 = df['Location'].value_counts()[1]
+    var4 = percentage_chasing[1].round()
+    var5 = percentage_climbing[1].round()
 
-    return render(request, "hello/display.html", {'var1':var1,'var2':var2,'var3':var3})
+    return render(request, "hello/display.html", {'var1':var1,'var2':var2,'var3':var3,'var4':var4,'var5':var5})
