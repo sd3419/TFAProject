@@ -38,17 +38,17 @@
                     <tbody>
                     {% for i in sightings %}
                         <tr>
-                            <form>
-                            <td class="text-center"> <input type="number" value="{{i.X}}"></input></td>
-                            <td> <input type="number" value="{{i.Y}}">  </input></td>
-                            <td> <input type="text" value="{{i.Unique_Squirrel_ID}}"> </input></td>
-                            <td> <input type="text" value="{{i.Shift}}"> </input></td>
-                            <td class="text-right"><input type="date" value="{{i.Date.year}}-{{i.Date.month}}-{{i.Date.day}}">  </input></td>
-                            <td class="text-right"><input type="number" value="{{i.Age}}"> </input></td>
+                            <form action="/sightings/{{i.Unique_Squirrel_ID}}" method="POST"> {% csrf_token %}
+                            <td class="text-center"> <input type="number" value="{{i.X}}" name="x"></input></td>
+                            <td> <input type="number" value="{{i.Y}}" name="y">  </input></td>
+                            <td> <input type="text" value="{{i.Unique_Squirrel_ID}}" name = "unique_squirrel_id"> </input></td>
+                            <td> <input type="text" value="{{i.Shift}}" name="shift"> </input></td>
+                            <td class="text-right"><input type="date" name= "date" value="{{i.Date.year}}-{{i.Date.month|stringformat:'02d'}}-{{i.Date.day|stringformat:'02d'}}">  </input></td>
+                            <td class="text-right"><input type="number" value="{{i.Age}}" name="age"> </input></td>
                             <td class="td-actions text-right">
-                                <button type="button" rel="tooltip" class="btn btn-success btn-just-icon btn-sm" data-original-title="" title="Update" text="update">
+                                <input type="submit" rel="tooltip" class="btn btn-success btn-just-icon btn-sm" data-original-title="" title="Update" text="update">
                                     <i class="material-icons">update</i>
-                                </button>
+                                </input>
                             </td>
                             </form>
                         </tr>

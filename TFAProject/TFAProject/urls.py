@@ -26,6 +26,6 @@ urlpatterns = [
     path('map/', map_),
     path ('sightings/', sightings),
     path ('sightings/<str:unique_squirrel_id>', update_sighting),
-    path('create', squirrel_data_create),
+    path('sightings/add', squirrel_data_create),
     path('display',display_r),
     ]
