@@ -3,6 +3,8 @@ from hello.models import squirrel_data
 from .forms import SquirreldataForm
 import pandas as pd
 from django.views.decorators.csrf import ensure_csrf_cookie
+from django.contrib import messages
+
 
 # Create your views here.
 def index(request):
@@ -29,6 +31,7 @@ def update_sighting(request, unique_squirrel_id):
         t.save()  # this will update only
         response = redirect('/sightings/'+t.Unique_Squirrel_ID)
         return response
+        messages.success(request, 'Form submission successful')
 
     return render(request, 'hello/update_sighting.html', {'sightings': sightings})
 
