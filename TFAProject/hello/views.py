@@ -18,8 +18,12 @@ def sightings(request):
 
 def update_sighting(request, unique_squirrel_id):
     sightings = list(squirrel_data.objects.filter(Unique_Squirrel_ID = unique_squirrel_id).values('X', 'Y','Unique_Squirrel_ID', 'Shift', 'Date', 'Age'))
-    return render(request, 'hello/update_sighting.html', {'sightings': sightings})
-   
+    return render(request, 'hello/update_data.html', {'sightings': sightings})
+    t = squirrel_data.objects.get(Unique_Squirrel_ID= unique_squirrel_id)
+    t.value = 999  # change field
+    t.save()  # this will update only
+
+    username = request.POST.get('username')
 
 @ensure_csrf_cookie
 def squirrel_data_create(request):
