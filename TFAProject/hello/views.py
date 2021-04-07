@@ -29,9 +29,10 @@ def update_sighting(request, unique_squirrel_id):
         t.Age = request.POST.get("age","")
         t.Unique_Squirrel_ID = request.POST.get("unique_squirrel_id", "")
         t.save()  # this will update only
+        messages.success(request, 'Form submission successful')
         response = redirect('/sightings/'+t.Unique_Squirrel_ID)
         return response
-        messages.success(request, 'Form submission successful')
+        #messages.success(request, 'Form submission successful')
 
     return render(request, 'hello/update_sighting.html', {'sightings': sightings})
 
