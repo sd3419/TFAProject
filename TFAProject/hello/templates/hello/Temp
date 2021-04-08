@@ -32,3 +32,123 @@
     len_fur_color = len(fur_color_data)
     percentage_fur = Primary_Fur_Color['Gray']
     animal_type['animal_type']: animal_type['animal_type__count'] * 100 / num_animal_types
+
+
+=====================================
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Videos</title>
+</head>
+<body>
+
+
+
+<h1>Statistics based on Squirrel Data</h1>
+<table border="1" width="600">
+ <tr>
+  <th>Statistic</th>
+ </tr>
+ <tr>
+   <td>{{st}}</td>
+ </tr>
+</table>
+
+
+<table class="table">
+ <thead>
+<tr>
+    <th class="text-center">X</th>
+    <th>Y</th>
+    <th>Unique_Squirrel_ID</th>
+    <th>Shift</th>
+    <th class="text-right">Date</th>
+    <th class="text-right">Age</th>
+    <th class="text-right">Update</th>
+</tr>
+</thead>
+<tbody>
+                    {% for i in sightings %}
+                        <tr>
+                            <form action="/sightings/{{i.Unique_Squirrel_ID}}" method="POST"> {% csrf_token %}
+                            <td class="text-center"> <input type="number" value="{{i.X}}" name="x"></input></td>
+                            <td> <input type="number" value="{{i.Y}}" name="y">  </input></td>
+                            <td> <input type="text" value="{{i.Unique_Squirrel_ID}}" name = "unique_squirrel_id"> </input></td>
+                            <td> <input type="text" value="{{i.Shift}}" name="shift"> </input></td>
+                            <td class="text-right"><input type="date" name= "date" value="{{i.Date.year}}-{{i.Date.month|stringformat:'02d'}}-{{i.Date.day|stringformat:'02d'}}">  </input></td>
+                            <td class="text-right"><input type="number" value="{{i.Age}}" name="age"> </input></td>
+                            <td class="td-actions text-right">
+                                <input type="submit" rel="tooltip" class="btn btn-success btn-just-icon btn-sm" data-original-title="" title="Update" text="update">
+                                    <i class="material-icons">update</i>
+                                </input>
+                            </td>
+                            </form>
+                        </tr>
+
+                    {% endfor %}
+                    </tbody>
+</table>
+</body>
+-----------------
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+<html xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+
+<head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons">
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+</head>
+<body>
+    <div class="container">
+        <br>
+    	<div class="title">
+    		<h3>Tables</h3>
+    	</div>
+    	<div class="row">
+            <div>
+                <div class="table-responsive">
+                    <table class="table">
+                    <thead>
+                        <tr>
+                            <th class="text-center">X</th>
+                            <th>Y</th>
+                            <th>Unique_Squirrel_ID</th>
+                            <th>Shift</th>
+                            <th>Date</th>
+                            <th>Age</th>
+                            <th>Update</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for i in st %}
+                        <tr>
+                            <td>{{i.X}}</td>
+                            <td>{{i.Y}}"</td>
+                            <td>{{i.Unique_Squirrel_ID}}"</td>
+                            <td>{{i.Shift}}</td>
+                            <td>{{i.Date.year}}-{{i.Date.month|stringformat:'02d'}}-{{i.Date.day|stringformat:'02d'}}</td>
+                            <td>{{i.Age}}</td>
+                        </tr>
+
+                    {% endfor %}
+                    </tbody>
+                </table>
+                </div>
+            </div>
+        </div>
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li>{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    </div>
+            </body>
+              </html>
