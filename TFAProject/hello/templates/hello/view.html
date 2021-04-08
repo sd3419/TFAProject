@@ -1,0 +1,110 @@
+<html xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+
+<head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons">
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+</head>
+<body>
+    <div class="container">
+        <br>
+    	<div class="title">
+    		<h3>Tables</h3>
+    	</div>
+    	<div class="row">
+            <div>
+                <div class="table-responsive">
+                    <table class="table">
+                    <thead>
+                        <tr>
+                            <th>X</th>
+                            <th>Y</th>
+                            <th>Unique_Squirrel_ID</th>
+                            <th>Hectare</th>
+                            <th>Shift</th>
+                            <th>Date</th>
+                            <th>Hectare_Squirrel_Number</th>
+                            <th>Age</th>
+                            <th>Primary_Fur_Color</th>
+                            <th>Highlight_Fur_Color</th>
+                            <th>Combination_of_Primary_and_Highlight_Color</th>
+                            <th>Color_notes</th>
+                            <th>Location</th>
+                            <th>Above_Ground_Sighter_Measurement</th>
+                            <th>Specific_Location</th>
+                            <th>Running</th>
+                            <th>Chasing</th>
+                            <th>Climbing</th>
+                            <th>Eating</th>
+                            <th>Foraging</th>
+                            <th>Other_Activities</th>
+                            <th>Kuks</th>
+                            <th>Quaas</th>
+                            <th>Moans</th>
+                            <th>Tail_flags</th>
+                            <th>Tail_twitches</th>
+                            <th>Approaches</th>
+                            <th>Indifferent</th>
+                            <th>Runs_from</th>
+                            <th>Other_Interactions</th>
+                            <th>Lat_Long</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for i in st %}
+                        <tr>
+                            <td>{{i.X}}</td>
+                            <td>{{i.Y}}"</td>
+                            <td>{{i.Unique_Squirrel_ID}}</td>
+                            <td>{{i.Hectare}}</td>
+                            <td>{{i.Shift}}</td>
+                            <td>{{i.Date.year}}-{{i.Date.month|stringformat:'02d'}}-{{i.Date.day|stringformat:'02d'}}</td>
+                            <td>{{i.Age}}</td>
+                            <td>{{i.Hectare_Squirrel_Number}}</td>
+                            <td>{{i.Primary_Fur_Color}}</td>
+                            <td>{{i.Highlight_Fur_Color}}</td>
+                            <td>{{i.Combination_of_Primary_and_Highlight_Color}}</td>
+                            <td>{{i.Color_notes}}</td>
+                            <td>{{i.Location}}</td>
+                            <td>{{i.Above_Ground_Sighter_Measurement}}</td>
+                            <td>{{i.Specific_Location}}</td>
+                            <td>{{i.Running}}</td>
+                            <td>{{i.Chasing}}</td>
+                            <td>{{i.Climbing}}</td>
+                            <td>{{i.Eating}}</td>
+                            <td>{{i.Foraging}}</td>
+                            <td>{{i.Other_Activities}}</td>
+                            <td>{{i.Kuks}}</td>
+                            <td>{{i.Quaas}}</td>
+                            <td>{{i.Moans}}</td>
+                            <td>{{i.Tail_flags}}</td>
+                            <td>{{i.Tail_twitches}}</td>
+                            <td>{{i.Approaches}}</td>
+                            <td>{{i.Indifferent}}</td>
+                            <td>{{i.Runs_from}}</td>
+                            <td>{{i.Other_Interactions}}</td>
+                            <td>{{i.Lat_Long}}</td>
+                        </tr>
+
+                    {% endfor %}
+                    </tbody>
+                </table>
+                </div>
+            </div>
+        </div>
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li>{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    </div>
+            </body>
+              </html>

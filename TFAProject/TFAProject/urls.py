@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path
 
 #my imports
-from hello.views import index, map_, sightings, update_sighting, squirrel_data_create,display_r
+from hello.views import index, map_, sightings, update_sighting, squirrel_data_create,display_r,view_data
 #
 
 urlpatterns = [
@@ -26,6 +26,7 @@ urlpatterns = [
     path('map/', map_),
     path ('sightings/', sightings),
     path ('sightings/<str:unique_squirrel_id>', update_sighting),
-    path('sightings/add', squirrel_data_create),
+    path('create', squirrel_data_create),
     path('display',display_r),
+    path('view/<str:unique_squirrel_id>',view_data)
     ]

@@ -1,5 +1,13 @@
 <!DOCTYPE html>
 <html>
+<br>
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
     <h1>   Hello there! Please update the values </h1>
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -39,6 +47,7 @@ input[type=date] {
     <div class="col=md-6"> </div>
 </div>
 </body>
-
+<br>
+<br>
 </html>
 
