@@ -23,14 +23,21 @@
                   <th>Link to Sighting</th>
                    </thead>
     <tbody>
+<!--            <form action="/create" method="POST"> {% csrf_token %}-->
+<!--            <input type = "submit" value="Add Sighting" />-->
+                <button onclick="window.location.href='/create';" >
+                Add Sighting
+                </button>
                                 {% for sight in sightings %}
                                     <tr>
                                         <td>{{sight.Unique_Squirrel_ID}}</td>
                                         <td>{{sight.Date}}</td>
-                                        <td class="text-danger"> <a href="" class="btn btn-primary"> View Sighting </a> </td>
+                                        <td class="td-actions">
+                                            <button onclick="window.location.href='/view/{{sight.Unique_Squirrel_ID}}';" > View Sighting</button>
+                                        </td>
                                     </tr>
                                 {% endfor %}
-
+    
     </tbody>
 
 </table>

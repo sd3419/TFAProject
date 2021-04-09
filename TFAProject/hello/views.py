@@ -17,6 +17,10 @@ def map_(request):
 def sightings(request):
     sightings = list(squirrel_data.objects.all().values('Unique_Squirrel_ID', 'Date'))
     return render(request, 'hello/sighting.html', {'sightings':sightings})
+    if(reqest.method == "POST"):
+        t = squirrel_data.objects.all()
+        return render(request, "hello/display.html",{'t':t})
+
 
 def update_sighting(request, unique_squirrel_id):
     sightings = list(squirrel_data.objects.filter(Unique_Squirrel_ID = unique_squirrel_id).values('X', 'Y','Unique_Squirrel_ID', 'Shift', 'Date', 'Age'))
@@ -32,7 +36,6 @@ def update_sighting(request, unique_squirrel_id):
         messages.success(request, 'Form submission successful')
         response = redirect('/sightings/'+t.Unique_Squirrel_ID)
         return response
-        #messages.success(request, 'Form submission successful')
 
     return render(request, 'hello/update_sighting.html', {'sightings': sightings})
 
@@ -41,6 +44,7 @@ def squirrel_data_create(request):
     form = SquirreldataForm(request.POST or None)
     if form.is_valid():
         form.save()
+        messages.success(request, 'Form submission successful')
     return render(request,"hello/index.html", {'form': form})
 
 def display_r(request):
@@ -57,3 +61,7 @@ def display_r(request):
     var5 = percentage_climbing[1].round()
 
     return render(request, "hello/display.html", {'var1':var1,'var2':var2,'var3':var3,'var4':var4,'var5':var5})
+
+def view_data(request, unique_squirrel_id):
+    st = list(squirrel_data.objects.filter(Unique_Squirrel_ID = unique_squirrel_id).values())
+    return render(request, "hello/view.html", {'st': st})
