@@ -21,5 +21,7 @@ This project is a Squirrel Tracker that tracks squirrels in the Central Park, Ne
   5. A page to view some general statistics on the Squirrel database
 
 > Project Group 44
+
 > UNIs: [km3638, sd3419]
+
 > Link to server:
