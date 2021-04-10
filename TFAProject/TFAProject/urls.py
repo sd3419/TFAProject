@@ -14,7 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, re_path
 
 #my imports
 from hello.views import index, map_, sightings, update_sighting, squirrel_data_create,display_r,view_data
@@ -24,9 +24,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('hello/',index),
     path('map/', map_),
-    path ('sightings/', sightings),
     path('sightings/add/', squirrel_data_create),
     path ('sightings/<str:unique_squirrel_id>', update_sighting),
+    path('sightings/', sightings),
     path('display',display_r),
     path('view/<str:unique_squirrel_id>',view_data)
     ]
