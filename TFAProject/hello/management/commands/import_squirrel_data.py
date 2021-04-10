@@ -16,36 +16,16 @@ class Command(BaseCommand):
             reader = csv.reader(file_)
             next(reader)
             for row in reader:
-                a = squirrel_data()
-                a.X = row[0]
-                a.Y = row[1]
-                a.Unique_Squirrel_ID = row[2]
-                a.Hectare = row[3]
-                a.Shift = row[4]
-                a.Date = datetime.datetime.strptime(row[5], '%m%d%Y').date()
-                a.Hectare_Squirrel_Number = row[6]
-                a.Age = row[7]
-                a.Primary_Fur_Color = row[8]
-                a.Highlight_Fur_Color = row[9]
-                a.Combination_of_Primary_and_Highlight_Color = row[10]
-                a.Color_notes = row[11]
-                a.Location = row[12]
-                a.Above_Ground_Sighter_Measurement = row[13]
-                a.Specific_Location = row[14]
-                a.Running = row[15].capitalize()
-                a.Chasing = row[16].capitalize()
-                a.Climbing = row[17].capitalize()
-                a.Eating = row[18].capitalize()
-                a.Foraging = row[19].capitalize()
-                a.Other_Activities = row[20]
-                a.Kuks = row[21].capitalize()
-                a.Quaas = row[22].capitalize()
-                a.Moans = row[23].capitalize()
-                a.Tail_flags = row[24].capitalize()
-                a.Tail_twitches = row[25].capitalize()
-                a.Approaches = row[26].capitalize()
-                a.Indifferent = row[27].capitalize()
-                a.Runs_from = row[28].capitalize()
-                a.Other_Interactions = row[29]
-                a.Lat_Long = row[30]
-                a.save()
+                try:
+
+                    a = squirrel_data(row[0],row[1],row[2],row[3],row[4],datetime.datetime.strptime(row[5], '%m%d%Y').date(),row[6],row[7],row[8],
+                                      row[9],row[10],row[11],row[12],row[13],row[14],
+                                      row[15].capitalize(),row[16].capitalize(),row[17].capitalize(),row[18].capitalize(),row[19].capitalize(),
+                                      row[20],
+                                      row[21].capitalize(),row[22].capitalize(),row[23].capitalize(),row[24].capitalize(),row[25].capitalize(),row[26].capitalize(),
+                                      row[27].capitalize(),row[28].capitalize(),row[29])
+                    a.save()
+                except Exception as e:
+                    print("Exception:", e)
+
+
