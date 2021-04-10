@@ -24,21 +24,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('hello/',index),
     path('map/', map_),
-<<<<<<< HEAD
-<<<<<<< HEAD
     path('sightings/add/', squirrel_data_create),
     path ('sightings/<str:unique_squirrel_id>', update_sighting),
     path('sightings/', sightings),
-=======
-    path ('sightings/', sightings),
-    path ('sightings/<str:unique_squirrel_id>', update_sighting),
-    path('create', squirrel_data_create),
->>>>>>> parent of a6df815 (Merge pull request #5 from sd3419/feature_attribute_regex)
-=======
-    path ('sightings/', sightings),
-    path('sightings/add/', squirrel_data_create),
-    path ('sightings/<str:unique_squirrel_id>', update_sighting),
->>>>>>> parent of 34b97a1 (Merge branch 'main' of https://github.com/sd3419/TFAProject into main)
     path('display',display_r),
-    path('view/<str:unique_squirrel_id>',view_data)
     ]
