@@ -53,9 +53,9 @@
 
         {% for sighting in sightings %}
           var point_lat_lon = [{{ sighting.Y }}, {{ sighting.X }}];
-          var marker = L.marker(point_lat_lon).addTo(<map name=""></map>);
+          var marker = L.marker(point_lat_lon).addTo(map);
           L.marker(point_lat_lon).addTo(map)
-    .bindPopup('{{ sighting.X }}-{{ sighting.Y }}')
+    .bindPopup('{{ sighting.x }}-{{ sighting.y }}')
     .openPopup();
 
         {% endfor %}

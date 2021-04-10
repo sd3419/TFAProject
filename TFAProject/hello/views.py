@@ -15,7 +15,7 @@ def map_(request):
     return render(request,'hello/map.html', {'sightings':sightings})
 
 def sightings(request):
-    sightings = list(squirrel_data.objects.all().values('Unique_Squirrel_ID', 'Date'))
+    sightings = list(squirrel_data.objects.all().values())
     return render(request, 'hello/sighting.html', {'sightings':sightings})
     if(reqest.method == "POST"):
         t = squirrel_data.objects.all()
@@ -23,10 +23,12 @@ def sightings(request):
 
 
 def update_sighting(request, unique_squirrel_id):
-    sightings = list(squirrel_data.objects.filter(Unique_Squirrel_ID = unique_squirrel_id).values('X', 'Y','Unique_Squirrel_ID', 'Shift', 'Date', 'Age'))
+    sightings = list(
+        squirrel_data.objects.filter(unique_squirrel_id=unique_squirrel_id).values('x', 'y', 'unique_squirrel_id',
+                                                                                   'shift', 'date', 'age'))
 
     if(request.method == "POST"):
-        t = squirrel_data.objects.get(Unique_Squirrel_ID= unique_squirrel_id)
+        t = squirrel_data.objects.get(unique_squirrel_id= unique_squirrel_id)
         t.X = request.POST.get("x","")  # change field
         t.Y = request.POST.get("y","")
         t.Date = request.POST.get("date","")
