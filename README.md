@@ -1,6 +1,6 @@
 # Squirrel Tracker (Tools for Analytics project)
 
-[logo]: https://github.com/sd3419/TFAProject/blob/feature_readme/animated-squirrel-image-0036.gif
+[logo]: https://github.com/sd3419/TFAProject/blob/feature_readme/Squirrel.jpg
 
 ### Description
 
