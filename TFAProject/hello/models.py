@@ -13,7 +13,8 @@ class squirrel_data(models.Model):
     hectare_squirrel_number = models.IntegerField()
     age = models.CharField(max_length=256, blank=True, null=True, choices=(
         ('Adult', 'Adult'),
-        ('Juvenile', 'Juvenile'),))
+        ('Juvenile', 'Juvenile'),
+        ('', 'blank'),))
     primary_fur_color = models.CharField(max_length=256, null=True, blank=True)
     highlight_fur_color = models.CharField(max_length=256, null=True, blank=True)
     combination_of_primary_and_highlight_color = models.CharField(max_length=256)
