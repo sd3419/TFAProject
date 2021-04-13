@@ -60,6 +60,5 @@ def display_r(request):
 
     return render(request, "hello/display.html", {'var1':var1,'var2':var2,'var3':var3,'var4':var4,'var5':var5})
 
-def view_data(request, unique_squirrel_id):
-    st = list(squirrel_data.objects.filter(Unique_Squirrel_ID = unique_squirrel_id).values())
-    return render(request, "hello/view.html", {'st': st})
+def home(request):
+    return render(request, "hello/home.html")
