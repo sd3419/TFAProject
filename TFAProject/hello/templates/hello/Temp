@@ -264,3 +264,66 @@
     </div>
             </body>
               </html>
+-------------------------------------------------------------
+
+--------------update_data.html----------------------
+<!DOCTYPE html>
+<html>
+    <h1>   Hello there! Please update the values </h1>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+input[type=text] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+input[type=text]:focus {
+  background-color: lightblue;
+}
+input[type=number] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+input[type=date] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+    </style>
+
+</head>
+<body>
+<div class="container">
+    <div class="col-md-6">
+    <form method="POST"> {% csrf_token %}
+    X: <input type="text" name="title"/><br/>
+    Y: <input type="text" name="title"/><br/>
+    Unique_Squirrel_ID: <input type="text" name="title"/><br/>
+    Shift: <input type="text" name="title"/><br/>
+    Date: <input type="text" name="title"/><br/>
+    Age: <input type="text" name="title"/><br/>
+    <input type = "submit" value="Update Value!" />
+    </form>
+    </div>
+    <div class="col=md-6"> </div>
+
+<!--<form action="" method="POST">-->
+<!--{% csrf_token %}-->
+<!--Title: <input type="text" name="title"/><br/>-->
+<!--Content: <br/>-->
+<!--<textarea cols="35" rows="8" name="content">-->
+<!--</textarea><br/>-->
+<!--<input type="submit" value="Post"/>-->
+<!--</form>-->
+<!--</body>-->
+
+</div>
+</body>
+
+</html>
+

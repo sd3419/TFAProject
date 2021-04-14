@@ -1,3 +1,6 @@
+{% extends 'M:\CU\Spring 2021\Tools for Analytics\Project\TFAProject\TFAProject\hello\templates\hello\home.html' %}
+{% block content %}
+
 <!DOCTYPE html>
 <html>
 <br>
@@ -8,7 +11,7 @@
     {% endfor %}
 </ul>
 {% endif %}
-    <h1>   Hello there! Please update the values </h1>
+
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <style>
@@ -34,7 +37,8 @@ input[type=date] {
   box-sizing: border-box;
 }
     </style>
-
+    <h1 style="text-align:center"> Add Sighting </h1>
+    <h4 style="text-align:center"> Fill in the following form to add a Sighting </h4>
 </head>
 <body>
 <div class="container">
@@ -51,3 +55,4 @@ input[type=date] {
 <br>
 </html>
 
+{% endblock %}
