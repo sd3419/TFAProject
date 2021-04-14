@@ -29,10 +29,11 @@ def update_sighting(request, unique_squirrel_id):
         t.y = request.POST.get("y","")
         t.date = request.POST.get("date","")
         t.age = request.POST.get("age","")
+        t.shift = request.POST.get("shift", "")
         t.unique_squirrel_id = request.POST.get("unique_squirrel_id", "")
         t.save()  # this will update only
-        messages.success(request, 'Form submission successful')
         response = redirect('/sightings/'+t.unique_squirrel_id)
+        messages.success(request, 'Form submission successful!')
         return response
 
     return render(request, 'hello/update_sighting.html', {'sightings': sightings})
@@ -61,4 +62,4 @@ def display_r(request):
     return render(request, "hello/display.html", {'var1':var1,'var2':var2,'var3':var3,'var4':var4,'var5':var5})
 
 def home(request):
-    return render(request, "hello/home.html")
+    return render(request, "hello/home_page.html")
