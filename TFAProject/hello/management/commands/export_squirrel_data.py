@@ -14,7 +14,8 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         print("export_squirrel_data : is running", options["file_location"])
         df = pd.DataFrame(list(squirrel_data.objects.all().values()))
-        del df['id']
-        df.Date = df.Date.apply(lambda x: x.strftime('%m%d%Y')).astype(int)
+        print(df.head())
+        df.Date = df.date.apply(lambda x: x.strftime('%m%d%Y')).astype(int)
+        df['Lat/Long'] = "POINT ("+df.x.map(str)+" " + df.y.map(str) + ")"
         print(df.head())
         df.to_csv(options["file_location"], index = False)
