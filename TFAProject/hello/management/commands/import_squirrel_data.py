@@ -3,14 +3,18 @@ import csv
 from hello.models import squirrel_data
 import datetime
 
-
-
 class Command(BaseCommand):
+    '''
+    Class to handle import operation
+    '''
+
     def add_arguments(self,parser):
         parser.add_argument('file_location', type= str, help="Enter a valid file location")
-    
-    
+
     def handle(self, *args, **options):
+        '''
+        Import records from csv to the SQLliteDB
+        '''
         print("import_squirrel_data : is running", options["file_location"])
         with open(options["file_location"]) as file_:
             reader = csv.reader(file_)
@@ -32,5 +36,3 @@ class Command(BaseCommand):
                     a.save()
                 except Exception as e:
                     print("Exception:", e)
-
-

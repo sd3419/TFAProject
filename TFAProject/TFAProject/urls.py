@@ -15,14 +15,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, re_path
+from hello.views import map, sightings, update_sighting, squirrel_data_create, display_r, home
 
-#my imports
-from hello.views import index, map_, sightings, update_sighting, squirrel_data_create,display_r,home
-#
+'''
+Mapping URLs to the respective Views function and the HTML template
+'''
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('map/', map_),
+    path('map/', map),
     re_path(r'sightings/add',squirrel_data_create),
     path('sightings/<str:unique_squirrel_id>', update_sighting),
     path('sightings/', sightings),

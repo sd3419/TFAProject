@@ -4,14 +4,18 @@ from hello.models import squirrel_data
 import datetime
 import pandas as pd
 
-
-
 class Command(BaseCommand):
+    '''
+    Class to handle export operation
+    '''
+
     def add_arguments(self,parser):
         parser.add_argument('file_location', type= str, help="Enter a valid file location")
 
-    
     def handle(self, *args, **options):
+        '''
+        Export records from SQLliteDB to csv
+        '''
         print("export_squirrel_data : is running", options["file_location"])
         df = pd.DataFrame(list(squirrel_data.objects.all().values()))
         print(df.head())

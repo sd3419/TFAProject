@@ -7,21 +7,26 @@ from django.contrib import messages
 
 
 # Create your views here.
-def index(request):
-    return render(request, 'hello/index.html')
-
-def map_(request):
+def map(request):
+    '''
+    Returns the sighting details to be displayed in the map
+    '''
     sightings = list(squirrel_data.objects.all().values())[:100]
     return render(request,'hello/map.html', {'sightings':sightings})
 
 def sightings(request):
+    '''
+    Returns the sighting details to be displayed in the /sightings route
+    '''
     sightings = list(squirrel_data.objects.all().values())
     return render(request, 'hello/sighting.html', {'sightings':sightings})
 
 def update_sighting(request, unique_squirrel_id):
+    '''
+    Handles POST request and returns the 6 fields to be displayed in the Update Sightings page
+    '''
     sightings = list(
-        squirrel_data.objects.filter(unique_squirrel_id=unique_squirrel_id).values('x', 'y', 'unique_squirrel_id',
-                                                                                   'shift', 'date', 'age'))
+        squirrel_data.objects.filter(unique_squirrel_id=unique_squirrel_id).values('x', 'y', 'unique_squirrel_id','shift', 'date', 'age'))
 
     if(request.method == "POST"):
         t = squirrel_data.objects.get(unique_squirrel_id= unique_squirrel_id)
@@ -40,6 +45,9 @@ def update_sighting(request, unique_squirrel_id):
 
 @ensure_csrf_cookie
 def squirrel_data_create(request):
+    '''
+    Handles POST request in the add sighting page
+    '''
     form = SquirreldataForm(request.POST or None)
     if form.is_valid():
         form.save()
@@ -47,6 +55,9 @@ def squirrel_data_create(request):
     return render(request,"hello/index.html", {'form': form})
 
 def display_r(request):
+    '''
+    Returns the values to be displayed on the Statistics page
+    '''
     st = squirrel_data.objects.all()  # Collect all records from table
 
     df = pd.DataFrame(list(squirrel_data.objects.all().values()))
@@ -62,4 +73,7 @@ def display_r(request):
     return render(request, "hello/display.html", {'var1':var1,'var2':var2,'var3':var3,'var4':var4,'var5':var5})
 
 def home(request):
+    '''
+    Function linked to the home page HTML
+    '''
     return render(request, "hello/home_page.html")

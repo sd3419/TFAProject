@@ -2,6 +2,9 @@ from django.db import models
 
 # Create your models here.
 class squirrel_data(models.Model):
+    '''
+    Defined all the variables
+    '''
     x = models.FloatField()
     y = models.FloatField()
     unique_squirrel_id = models.CharField(max_length=256, primary_key=True, unique=True)
@@ -46,11 +49,3 @@ class squirrel_data(models.Model):
 
     def add_data_row(self, row_json):#row is a json
         pass
-
-
-
-
-
-
-
-
